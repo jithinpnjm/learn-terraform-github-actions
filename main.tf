@@ -46,7 +46,7 @@ module "vpc" {
     Environment = "dev"
   }
   output "vpc_id" {
-    value = myvpc.vpc_id
+    value = vpc_id
 }
 }
 
