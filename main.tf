@@ -42,12 +42,12 @@ module "vpc" {
   enable_vpn_gateway = true
 
   tags = {
-    Terraform = "true"
+    Terraform   = "true"
     Environment = "dev"
   }
   output "vpc_id" {
-    value = vpc_id
-}
+    value = aws_vpc.my-vpc.id
+  }
 }
 
 resource "aws_instance" "web" {
@@ -63,8 +63,8 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "web-sg" {
-  name = "${random_pet.sg.id}-sg"
-  vpc_id      = module.vpc.vpc_id
+  name   = "${random_pet.sg.id}-sg"
+  vpc_id = module.vpc.vpc_id
   ingress {
     from_port   = 8080
     to_port     = 8080
