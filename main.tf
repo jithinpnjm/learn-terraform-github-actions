@@ -1,8 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = "3.26.0"
+      source = "hashicorp/aws"
     }
     random = {
       source  = "hashicorp/random"
@@ -29,7 +28,8 @@ provider "aws" {
 
 resource "random_pet" "sg" {}
 module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "5.0.0"
 
   name = "my-vpc"
   cidr = "10.0.0.0/16"
@@ -45,9 +45,7 @@ module "vpc" {
     Terraform   = "true"
     Environment = "dev"
   }
-  output "vpc_id" {
-    value = aws_vpc.my-vpc.id
-  }
+
 }
 
 resource "aws_instance" "web" {
