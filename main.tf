@@ -29,7 +29,7 @@ provider "aws" {
 
 resource "random_pet" "sg" {}
 module "vpc" {
-  source = "./modules/vpc"
+  source = "terraform-aws-modules/vpc/aws"
 
   name = "my-vpc"
   cidr = "10.0.0.0/16"
