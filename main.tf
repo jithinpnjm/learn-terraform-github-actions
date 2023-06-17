@@ -48,6 +48,7 @@ module "vpc" {
   output "vpc_id" {
     value = myvpc.vpc_id
 }
+}
 
 resource "aws_instance" "web" {
   ami                    = "ami-09e67e426f25ce0d7"
