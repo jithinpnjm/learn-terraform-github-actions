@@ -45,6 +45,8 @@ module "vpc" {
     Terraform = "true"
     Environment = "dev"
   }
+  output "vpc_id" {
+    value = myvpc.vpc_id
 }
 
 resource "aws_instance" "web" {
