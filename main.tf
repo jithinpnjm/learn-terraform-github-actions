@@ -46,7 +46,7 @@ module "vpc" {
     Environment = "dev"
   }
   output "vpc_id" {
-    value = aws_vpc.my-vpc.id
+    value = module.vpc.id
   }
 }
 
